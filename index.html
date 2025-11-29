@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matrimonio Francesco & Francesco – Castello di Cavernago</title>
+
+<!-- Font eleganti -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg: #f7f4ef;
+--bg-light: #fbf8f2;
+--accent: #c9a348;
+--accent-dark: #8a6b25;
+--ink: #1f1f1f;
+--blue: #1d3557;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: var(--bg);
+color: var(--ink);
+line-height: 1.6;
+}
+
+header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(247, 244, 239, 0.97);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0.7rem 1.2rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-logo {
+font-family: "Playfair Display", serif;
+font-size: 1.1rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(--blue);
+}
+
+.nav-links {
+display: flex;
+gap: 1.2rem;
+font-size: 0.9rem;
+}
+
+.nav-links a {
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+font-weight: 500;
+color: var(--ink);
+font-size: 0.8rem;
+}
+
+.nav-links a:hover {
+color: var(--accent-dark);
+}
+
+.greek-border {
+position: relative;
+padding: 0.2rem;
+background-image:
+linear-gradient(90deg, var(--accent) 25%, transparent 25%, transparent 50%, var(--accent) 50%, var(--accent) 75%, transparent 75%, transparent 100%),
+linear-gradient(90deg, var(--accent) 25%, transparent 25%, transparent 50%, var(--accent) 50%, var(--accent) 75%, transparent 75%, transparent 100%);
+background-size: 20px 2px, 20px 2px;
+background-position: top left, bottom left;
+background-repeat: repeat-x;
+}
+
+.hero {
+max-width: 1100px;
+margin: 0 auto;
+padding: 3.5rem 1.2rem 3rem;
+text-align: center;
+position: relative;
+}
+
+.hero-inner {
+background: var(--bg-light);
+border-radius: 18px;
+padding: 2.8rem 1.8rem 2.4rem;
+box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+position: relative;
+overflow: hidden;
+}
+
+.hero-inner::before,
+.hero-inner::after {
+content: "🏛️";
+position: absolute;
+font-size: 2.8rem;
+opacity: 0.08;
+top: 1.2rem;
+}
+
+.hero-inner::before {
+left: 1.4rem;
+}
+.hero-inner::after {
+right: 1.4rem;
+}
+
+.hero-subtitle {
+text-transform: uppercase;
+letter-spacing: 0.25em;
+font-size: 0.75rem;
+color: var(--accent-dark);
+margin-bottom: 0.8rem;
+}
+
+.hero-names {
+font-family: "Playfair Display", serif;
+font-size: clamp(2.5rem, 4vw, 3.2rem);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+margin-bottom: 0.6rem;
+}
+
+.hero-ampersand {
+color: var(--accent);
+}
+
+.hero-date {
+font-size: 0.95rem;
+text-transform: uppercase;
+letter-spacing: 0.18em;
+color: var(--blue);
+margin-bottom: 0.4rem;
+}
+
+.hero-location {
+font-size: 0.9rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: rgba(0,0,0,0.7);
+margin-bottom: 1.4rem;
+}
+
+.hero-phrase {
+font-family: "Playfair Display", serif;
+font-style: italic;
+font-size: 1rem;
+margin-bottom: 2rem;
+color: #444;
+}
+
+.hero-olive {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+font-size: 0.85rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent-dark);
+}
+
+.olive-divider {
+width: 50px;
+height: 1px;
+background: var(--accent-dark);
+opacity: 0.6;
+}
+
+.countdown {
+margin-top: 2rem;
+display: flex;
+justify-content: center;
+gap: 1.2rem;
+flex-wrap: wrap;
+}
+
+.count-box {
+min-width: 70px;
+padding: 0.8rem 0.9rem;
+border-radius: 12px;
+border: 1px solid rgba(0,0,0,0.06);
+background: white;
+}
+
+.count-number {
+font-size: 1.2rem;
+font-weight: 600;
+color: var(--blue);
+}
+
+.count-label {
+font-size: 0.65rem;
+text-transform: uppercase;
+letter-spacing: 0.18em;
+color: rgba(0,0,0,0.7);
+margin-top: 0.2rem;
+}
+
+section {
+max-width: 1100px;
+margin: 0 auto;
+padding: 3rem 1.2rem;
+}
+
+section:nth-of-type(even) .section-inner {
+background: var(--bg-light);
+}
+
+.section-inner {
+background: white;
+border-radius: 16px;
+padding: 2rem 1.5rem;
+box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.section-title {
+font-family: "Playfair Display", serif;
+font-size: 1.6rem;
+margin-bottom: 0.4rem;
+text-align: center;
+}
+
+.section-subtitle {
+font-size: 0.8rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+text-align: center;
+color: var(--accent-dark);
+margin-bottom: 2rem;
+}
+
+.columns {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1.8rem;
+}
+
+@media (max-width: 768px) {
+.nav-links {
+display: none;
+}
+
+.columns {
+grid-template-columns: 1fr;
+}
+
+.hero-inner {
+padding: 2.2rem 1.1rem 2rem;
+}
+}
+
+h3 {
+font-family: "Playfair Display", serif;
+font-size: 1.1rem;
+margin-bottom: 0.4rem;
+}
+
+.detail-line {
+font-size: 0.9rem;
+margin-bottom: 0.2rem;
+}
+
+.detail-label {
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+font-size: 0.7rem;
+color: rgba(0,0,0,0.7);
+}
+
+.detail-text {
+font-size: 0.9rem;
+}
+
+.note {
+font-size: 0.85rem;
+color: #555;
+margin-top: 0.5rem;
+}
+
+.timeline {
+margin-top: 1rem;
+border-left: 2px solid rgba(0,0,0,0.1);
+padding-left: 1rem;
+}
+
+.timeline-item {
+margin-bottom: 1rem;
+position: relative;
+}
+
+.timeline-item::before {
+content: "";
+position: absolute;
+left: -1.15rem;
+top: 0.35rem;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--accent);
+}
+
+.timeline-time {
+font-size: 0.85rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: var(--blue);
+}
+
+.timeline-title {
+font-size: 0.95rem;
+font-weight: 500;
+}
+
+form {
+margin-top: 1.2rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem 1.4rem;
+}
+
+form .full {
+grid-column: 1 / -1;
+}
+
+label {
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+margin-bottom: 0.25rem;
+display: block;
+}
+
+input, select, textarea {
+width: 100%;
+padding: 0.6rem 0.7rem;
+border-radius: 8px;
+border: 1px solid rgba(0,0,0,0.14);
+background: #fff;
+font-family: inherit;
+font-size: 0.9rem;
+}
+
+textarea {
+min-height: 90px;
+resize: vertical;
+}
+
+button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.75rem 1.6rem;
+border-radius: 999px;
+border: none;
+font-size: 0.8rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+font-weight: 600;
+background: var(--accent);
+color: white;
+cursor: pointer;
+margin-top: 0.5rem;
+}
+
+button:hover {
+background: var(--accent-dark);
+}
+
+.highlight-box {
+border-radius: 12px;
+border: 1px dashed rgba(0,0,0,0.15);
+padding: 1rem 1.2rem;
+font-size: 0.9rem;
+background: #fdfaf5;
+margin-top: 0.7rem;
+}
+
+.travel-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0,1fr));
+gap: 1.2rem;
+margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+.travel-grid {
+grid-template-columns: 1fr;
+}
+}
+
+.travel-card {
+border-radius: 12px;
+border: 1px solid rgba(0,0,0,0.07);
+padding: 1rem 1.1rem;
+background: #fff;
+font-size: 0.9rem;
+}
+
+.travel-card-title {
+font-family: "Playfair Display", serif;
+font-size: 1rem;
+margin-bottom: 0.2rem;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+gap: 1.8rem;
+align-items: start;
+}
+
+@media (max-width: 900px) {
+.gallery-grid {
+grid-template-columns: 1fr;
+}
+}
+
+.gallery-card {
+border-radius: 12px;
+border: 1px solid rgba(0,0,0,0.07);
+padding: 1.2rem 1.3rem;
+background: #fff;
+font-size: 0.9rem;
+}
+
+.gallery-preview {
+border-radius: 12px;
+border: 1px dashed rgba(0,0,0,0.15);
+padding: 1rem 1.1rem;
+text-align: center;
+font-size: 0.85rem;
+background: #fdfaf5;
+}
+
+.gallery-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.75rem 1.6rem;
+border-radius: 999px;
+border: none;
+font-size: 0.8rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+font-weight: 600;
+background: var(--accent);
+color: white;
+cursor: pointer;
+text-decoration: none;
+margin-top: 0.7rem;
+}
+
+.gallery-btn:hover {
+background: var(--accent-dark);
+}
+
+footer {
+text-align: center;
+font-size: 0.8rem;
+padding: 2rem 1.2rem 2.5rem;
+color: rgba(0,0,0,0.7);
+}
+
+.footer-olive {
+margin-bottom: 0.7rem;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<div class="nav-logo">F & F</div>
+<nav class="nav-links">
+<a href="#cerimonia">Cerimonia</a>
+<a href="#dresscode">Dress Code</a>
+<a href="#rsvp">RSVP</a>
+<a href="#foto">Foto in diretta</a>
+<a href="#lista">Lista nozze</a>
+<a href="#arrivare">Come arrivare</a>
+</nav>
+</div>
+</header>
+
+<div class="greek-border">
+<section class="hero" id="top">
+<div class="hero-inner">
+<div class="hero-subtitle">Celebrazione dell'Unione Civile di</div>
+
+<h1 class="hero-names">
+Francesco <span class="hero-ampersand">&</span> Francesco
+</h1>
+
+<div class="hero-date">27 Giugno 2026</div>
+<div class="hero-location">Castello di Cavernago • Cavernago (BG)</div>
+
+<p class="hero-phrase">
+Saremo felici di potervi avere accanto <br>
+per celebrare questo nuovo capitolo <br>
+della nostra vita insieme.
+</p>
+
+<div class="hero-olive">
+<span class="olive-divider"></span>
+<span>Sempre e Per Sempre</span>
+<span class="olive-divider"></span>
+</div>
+
+<div class="countdown" id="countdown">
+<div class="count-box">
+<div class="count-number" id="days">–</div>
+<div class="count-label">Giorni</div>
+</div>
+<div class="count-box">
+<div class="count-number" id="hours">–</div>
+<div class="count-label">Ore</div>
+</div>
+<div class="count-box">
+<div class="count-number" id="minutes">–</div>
+<div class="count-label">Minuti</div>
+</div>
+<div class="count-box">
+<div class="count-number" id="seconds">–</div>
+<div class="count-label">Secondi</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<section id="cerimonia">
+<div class="section-inner">
+<h2 class="section-title">Cerimonia & Ricevimento</h2>
+<div class="section-subtitle">Dettagli del grande giorno</div>
+
+<div class="columns">
+<div>
+<h3>La Cerimonia</h3>
+<p class="detail-line">
+<span class="detail-label">Luogo</span><br>
+<span class="detail-text">
+Castello di Cavernago<br>
+Via Castello di Cavernago 1, 24050 Cavernago (BG)
+</span>
+</p>
+<p class="detail-line">
+<span class="detail-label">Data & Orario</span><br>
+<span class="detail-text">27 Giugno 2026 • Ore 14:00</span>
+</p>
+</div>
+
+<div>
+<h3>Il Ricevimento</h3>
+<p class="detail-line">
+<span class="detail-label">A seguire</span><br>
+<span class="detail-text">Cena e festa nelle sale e nei cortili del castello.</span>
+</p>
+
+<p class="note">
+In caso di meteo avverso, la celebrazione avrà luogo presso la corte e le sale del castello.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="dresscode">
+<div class="section-inner">
+<h2 class="section-title">Dress Code</h2>
+<div class="section-subtitle">L'abbigliamento richiesto per la cerimonia è il <br>
+<strong>Total White</strong></div>
+
+<div class="columns">
+<div>
+<p>
+Vi invitiamo ad utilizzare esclusivamente vestiti ed abiti eleganti di <strong>Colore Bianco</strong>.
+</p>
+<p>
+Il bianco in tutte le sue sfumature è ammesso.</p>
+</div>
+<div>
+<p>
+Per gli accessori (cintura, scarpe, gemelli, ecc.), possono essere usate tonalità chiare dei colori sabbia, marrone o beige.</p>
+<p>
+L'utilizzo di colori scuri, accesi o pastello è caldamente sconsigliato.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="rsvp">
+<div class="section-inner">
+<h2 class="section-title">RSVP</h2>
+<div class="section-subtitle">Conferma la tua presenza</div>
+
+<p style="text-align:center; max-width:650px; margin:0 auto 1.4rem;">
+Vi chiediamo gentilmente di confermare la vostra presenza entro il
+<strong>30 Aprile 2026</strong>.
+</p>
+
+<form action="mailto:themarriage&#64;outlook&#46;it ?subject=conferma%20partecipazione" method="post" enctype="text/plain">
+<div>
+<label for="nome">Nome e cognome*</label>
+<input type="text" id="nome" name="Nome" required>
+</div>
+<div>
+<label for="ospiti">Numero di persone*</label>
+<select id="ospiti" name="Numero di persone" required>
+<option value="">Seleziona…</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+</select>
+</div>
+<div>
+<label for="presenza">Presenza*</label>
+<select id="presenza" name="Partecipazione" required>
+<option value="">Seleziona…</option>
+<option>Sì, ci saremo</option>
+<option>Purtroppo non potremo esserci</option>
+</select>
+</div>
+<div>
+<label for="menu">Preferenze menù</label>
+<select id="menu" name="Menu' preferito">
+<option value="">Nessuna preferenza</option>
+<option>Classico</option>
+<option>Vegetariano</option>
+<option>Vegano</option>
+<option>Senza glutine</option>
+<option>Senza lattosio</option>
+</select>
+</div>
+<div class="full">
+<label for="allergie">Allergie o intolleranze</label>
+<textarea id="allergie" name="Allergie"></textarea>
+</div>
+<div class="full">
+<label for="messaggio">Messaggio per gli sposi</label>
+<textarea id="messaggio" name="Messaggio"></textarea>
+</div>
+<div class="full" style="text-align:center;">
+<button type="submit">Invia conferma</button>
+</div>
+</form>
+</div>
+</section>
+
+<section id="foto">
+<div class="section-inner">
+<h2 class="section-title">Foto in diretta</h2>
+<div class="section-subtitle">Condividi il tuo sguardo sul nostro giorno</div>
+
+<div class="gallery-grid">
+<div class="gallery-card">
+<p>
+Vogliamo vedere il matrimonio anche attraverso i vostri occhi:
+sorrisi rubati, dettagli, brindisi, danze e tutti quei momenti
+che magari a noi sfuggono.
+</p>
+<p style="margin-top:0.6rem;">
+Durante la giornata potrete caricare le vostre foto in tempo reale
+in un album condiviso.
+</p>
+<p class="note">
+</p>
+
+<a class="gallery-btn" href="https://photos.app.goo.gl/il-tuo-album" target="_blank" rel="noopener noreferrer">
+Carica le tue foto
+</a>
+
+<div class="gallery-preview">
+<p style="font-style:italic; margin-bottom:0.6rem;">
+“Come gli antichi poeti incidevano amori e gesta nel marmo, voi incidete il nostro giorno nelle vostre foto.
+Ogni scatto è un frammento di mito: rubate sorrisi, dettagli, luci e abbracci, così che questo giorno
+resti eterno, come le storie degli dèi e degli eroi.”
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="lista">
+<div class="section-inner">
+<h2 class="section-title">Lista nozze</h2>
+<div class="section-subtitle">Il nostro viaggio</div>
+
+<p>
+Il dono più grande per noi è avervi presenti in questo giorno così importante.
+Se desiderate comunque farci un regalo, ci piacerebbe che ci aiutaste a realizzare
+il nostro viaggio di nozze.
+</p>
+
+<div class="highlight-box">
+<p style="margin-bottom:0.4rem;">
+<strong>IBAN</strong>: IT00 X000 0000 0000 0000 0000 000
+</p>
+<p style="margin-bottom:0.4rem;">
+Intestato a: <strong>Francesco Esposito</strong>
+</p>
+<p style="font-size:0.85rem;">
+Causale suggerita: “Viaggio di nozze di Francesco e Francesco” 🏛️✨
+</p>
+</div>
+</div>
+</section>
+
+<section id="arrivare">
+<div class="section-inner">
+<h2 class="section-title">Come arrivare</h2>
+<div class="section-subtitle">Indicazioni per raggiungere il castello</div>
+
+<div class="travel-grid">
+<div class="travel-card">
+<div class="travel-card-title">In auto</div>
+<p>
+Castello di Cavernago<br>
+Via Castello di Cavernago 1, 24050 Cavernago (BG).
+</p>
+<p style="margin-top:0.4rem;">
+È disponibile parcheggio nei pressi del castello.
+Seguite le indicazioni “Matrimonio Francesco & Francesco”.
+</p>
+</div>
+<div class="travel-card">
+<div class="travel-card-title">Mappa</div>
+<p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.044139116131!2d9.757660486555501!3d45.6298495965017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478144d0bb2f1859%3A0xc0b86cb57a6d9747!2sCastello%20di%20Cavernago!5e0!3m2!1sit!2sit!4v1763309631935!5m2!1sit!2sit" width="280" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</p>
+</div>
+<div class="travel-card">
+<div class="travel-card-title">Pullman dalla Valle Imagna</div>
+<p>
+Sarà messo a disposizione degli invitati della <strong>Valle Imagna</strong>
+un autobus privato che partirà dal campo sportivo di Sant'omobono Terme alle ore 13.00.
+</p>
+<p style="margin-top:0.4rem;">
+Il rientro in Valle avverrà al termine dei festeggiamenti.
+</p>
+</div>
+</div>
+
+<p class="note">
+Se avete bisogno di supporto per organizzare il viaggio o trovare un alloggio nei dintorni,
+potete scriverci e saremo felici di aiutarvi.
+</p>
+</div>
+</section>
+
+<footer>
+<div class="footer-olive">
+🌿 Con amore, Francesco &amp; Francesco 🌿
+</div>
+<div>
+“Che gli dèi brindino con noi e che il nostro amore resti scritto nelle stelle.”
+</div>
+</footer>
+
+<script>
+const weddingDate = new Date("2026-06-27T16:30:00").getTime();
+
+function updateCountdown() {
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("days").textContent = d >= 0 ? d : 0;
+document.getElementById("hours").textContent = h >= 0 ? h : 0;
+document.getElementById("minutes").textContent = m >= 0 ? m : 0;
+document.getElementById("seconds").textContent = s >= 0 ? s : 0;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
